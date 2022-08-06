@@ -17,9 +17,6 @@ impl Point {
 }
 
 #[no_mangle]
-pub extern "C" fn mrb_mruby_example_gem_init(mrb: *mut minutus::mruby::minu_state) {
+pub extern "C" fn mruby_example_gem_init(mrb: *mut minutus::mruby::minu_state) {
     __init_Point(mrb)
 }
-
-#[no_mangle]
-pub extern "C" fn mrb_mruby_example_gem_final(_mrb: *mut minutus::mruby::minu_state) {}
