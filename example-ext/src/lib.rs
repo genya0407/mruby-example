@@ -12,11 +12,14 @@ impl Point {
 
     #[minutus::method]
     pub fn distance(&self, other: &Point) -> f64 {
-        (((self.x - other.x).abs() ^ 2 + (self.y - other.y).abs() ^ 2) as f64).sqrt()
+        (((self.x - other.x).abs().pow(2) + (self.y - other.y).abs().pow(2)) as f64).sqrt()
     }
 }
 
-pub extern "C" fn init_example_gem_init(mrb: *mut minutus::mruby::minu_state) {
+#[no_mangle]
+pub extern "C" fn mrb_mruby_example_gem_init(mrb: *mut minutus::mruby::minu_state) {
     __init_Point(mrb)
 }
-pub extern "C" fn init_example_gem_final(_mrb: *mut minutus::mruby::minu_state) {}
+
+#[no_mangle]
+pub extern "C" fn mrb_mruby_example_gem_final(_mrb: *mut minutus::mruby::minu_state) {}
