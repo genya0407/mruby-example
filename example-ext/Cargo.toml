@@ -1,0 +1,12 @@
+[package]
+name = "example-ext"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+minutus = { git = "https://github.com/genya0407/minutus", rev = "711034ced5c1bb098364255d3db7598aa6fbc8b5" }
+
+[lib]
+crate-type = ["staticlib"]
